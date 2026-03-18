@@ -1,6 +1,6 @@
 Overview
 
-This project is a Flask-based web application that signs and verifies files using ECDSA (SECP256R1) with SHA-256. It ensures file integrity and authenticity by generating a digital signature with a private key and validating it with a corresponding public key. The system demonstrates how cryptography can be applied in a practical web environment alongside secure development practices.
+This project implements a secure file signing and verification system using ECDSA (SECP256R1) and SHA-256, designed to demonstrate how cryptographic controls can be applied in a real-world web environment. It ensures file integrity and authenticity while incorporating secure development practices such as encrypted key storage, HTTPS enforcement and logging.
 
 Features
 
