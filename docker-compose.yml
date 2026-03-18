@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  flask:
+    build:
+      context: .
+      dockerfile: flask_dockerfile
+    volumes:
+      - ./logs:/app/logs
+    expose:
+      - "5000"
+    environment:
+      - PRIVATE_KEY_PASSPHRASE=CyberEngineering!
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx_dockerfile
+    ports:
+      - "443:443"
+      - "80:80"
+    depends_on:
+      - flask
+    volumes:
+      - ./certs:/etc/nginx/certs
+    networks:
+      - app-network
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
+
